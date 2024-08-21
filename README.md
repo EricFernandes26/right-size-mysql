@@ -36,7 +36,7 @@ pip install -r requirements.txt
 2. **Executar o Script**: Execute o script `rs-mysql.py` e insira as credenciais de acesso ao banco de dados quando solicitado:
 
  ```bash
-   python3 rs_mysql.py
+   python3 rs-mysql.py
 ```
 
 Durante a execução, o script pedirá os seguintes detalhes:
