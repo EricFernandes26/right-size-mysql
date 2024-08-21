@@ -50,7 +50,7 @@ def coletar_metricas_mysql(host, user, password, db):
         'os_log_written': os_log_written
     }
 # Coletar métricas do MySQL
-metricas_mysql = coletar_metricas_mysql(host='localhost', user='root', password='password', db='sakila')
+metricas_mysql = coletar_metricas_mysql(host='localhost', user='root', password='***', db='test')
 
 # Recomendar instância AWS
 instancia_recomendada = recomendar_instancia_mysql(metricas_mysql)
