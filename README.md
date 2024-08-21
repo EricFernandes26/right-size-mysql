@@ -58,6 +58,8 @@ O arquivo Excel gerado (metricas_mysql.xlsx) conterá as seguintes colunas:
 - data_reads: Leituras de dados do InnoDB.
 - data_writes: Escritas de dados do InnoDB.
 - os_log_written: Quantidade de logs do sistema operacional escritos.
+  
+![image](https://github.com/user-attachments/assets/44e8b341-ae53-45e8-9047-42e136cea106)
 
 
 ## Explicação dos Termos de Monitoramento do MySQL
