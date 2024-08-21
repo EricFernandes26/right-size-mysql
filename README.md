@@ -30,19 +30,21 @@ pip install -r requirements.txt
 ```
 
 ## Como Usar
-Configurar o Banco de Dados: Certifique-se de que o banco de dados MySQL esteja configurado e acessível.
 
-Editar as Credenciais: No arquivo rs-mysql.py, edite as credenciais de acesso ao banco de dados:
+1. **Configurar o Banco de Dados**: Certifique-se de que o banco de dados MySQL esteja configurado e acessível.
 
-```bash
-metricas_mysql = coletar_metricas_mysql(host='localhost', user='user, password='****', db='test')
+2. **Executar o Script**: Execute o script `rs-mysql.py` e insira as credenciais de acesso ao banco de dados quando solicitado:
+
+ ```bash
+   python3 rs_mysql.py
 ```
 
-Executar o Script: Execute o script rs_mysql.py para coletar as métricas e gerar a recomendação de instância:
+Durante a execução, o script pedirá os seguintes detalhes:
 
-```bash
-python3 rs_mysql.py
-```
+- Host: Endereço do host onde o MySQL está rodando.
+- Usuário: Nome de usuário para conectar ao MySQL.
+- Senha: A senha associada ao usuário (a entrada será ocultada).
+- Banco de Dados: Nome do banco de dados que será usado.
 
 Ver o Resultado: O script irá gerar um arquivo **`metricas_mysql.xlsx`** com as métricas coletadas e a recomendação de instância.
 
