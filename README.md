@@ -46,6 +46,9 @@ Durante a execução, o script pedirá os seguintes detalhes:
 - Senha: A senha associada ao usuário (a entrada será ocultada).
 - Banco de Dados: Nome do banco de dados que será usado.
 
+  ![image](https://github.com/user-attachments/assets/48d93ecb-8059-4505-ace6-19ab9871ea0b)
+
+
 Ver o Resultado: O script irá gerar um arquivo **`metricas_mysql.xlsx`** com as métricas coletadas e a recomendação de instância.
 
 ## Exemplo de Saída
