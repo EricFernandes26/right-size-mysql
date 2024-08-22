@@ -1,0 +1,18 @@
+def gerar_relatorio(metricas, pontuacao):
+    with open('relatorio_pontuacao.txt', 'w') as arquivo:
+        arquivo.write("Relatório de Pontuação\n")
+        arquivo.write("=======================\n\n")
+        arquivo.write(f"Threads Running: {metricas['threads_running']}\n")
+        arquivo.write(f"Queries: {metricas['queries']}\n")
+        arquivo.write(f"Innodb Buffer Pool Read Requests: {metricas['buffer_reads']}\n")
+        arquivo.write(f"Innodb Buffer Pool Write Requests: {metricas['buffer_writes']}\n")
+        arquivo.write(f"Innodb Data Reads: {metricas['data_reads']}\n")
+        arquivo.write(f"Innodb Data Writes: {metricas['data_writes']}\n\n")
+        arquivo.write(f"Pontuação total: {pontuacao}\n\n")
+        arquivo.write("Critérios usados para a pontuação:\n")
+        arquivo.write("=================================\n")
+        arquivo.write("1. Threads Running (Peso 1.5)\n")
+        arquivo.write("2. Queries (Peso 1.2)\n")
+        arquivo.write("3. Buffer Reads e Writes (Peso 1.8)\n")
+        arquivo.write("4. Data Reads e Writes (Peso 2.0)\n\n")
+        arquivo.write(f"Instância recomendada: {metricas['instancia_recomendada']}\n")
