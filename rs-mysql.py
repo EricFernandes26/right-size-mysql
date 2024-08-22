@@ -1,6 +1,8 @@
 import pymysql
 from instances import recomendar_instancia_mysql
+from relatorio import gerar_relatorio
 import pandas as pd
+from getpass import getpass
 
 def coletar_metricas_mysql(host, user, password, db):
     conexao = pymysql.connect(host=host, user=user, password=password, db=db)
@@ -49,21 +51,34 @@ def coletar_metricas_mysql(host, user, password, db):
         'data_writes': data_writes,
         'os_log_written': os_log_written
     }
-# Coletar métricas do MySQL
-metricas_mysql = coletar_metricas_mysql(host='localhost', user='root', password='***', db='test')
 
-# Recomendar instância AWS
-instancia_recomendada = recomendar_instancia_mysql(metricas_mysql)
+if __name__ == "__main__":
+    # Solicitar entrada do usuário para as credenciais e informações do banco de dados
+    host = input("Digite o host do MySQL: ")
+    user = input("Digite o usuário do MySQL: ")
+    password = getpass("Digite a senha do MySQL: ")  # getpass oculta a entrada da senha
+    db = input("Digite o nome do banco de dados: ")
 
-# Adicionar a recomendação às métricas
-metricas_mysql['instancia_recomendada'] = instancia_recomendada
+    # Coletar métricas do MySQL
+    metricas_mysql = coletar_metricas_mysql(host=host, user=user, password=password, db=db)
 
-# Converter as métricas para um DataFrame
-df = pd.DataFrame([metricas_mysql])
+    # Recomendar instância AWS e calcular pontuação
+    instancia_recomendada, pontuacao = recomendar_instancia_mysql(metricas_mysql)
 
-# Exportar para um arquivo Excel
-df.to_excel('metricas_mysql.xlsx', index=False)
+    # Adicionar a recomendação e pontuação às métricas
+    metricas_mysql['instancia_recomendada'] = instancia_recomendada
+    metricas_mysql['pontuacao'] = pontuacao
 
-print(f"Métricas coletadas: {metricas_mysql}")
-print(f"Arquivo 'metricas_mysql.xlsx' criado com sucesso.")
-  
+    # Converter as métricas para um DataFrame
+    df = pd.DataFrame([metricas_mysql])
+
+    # Exportar para um arquivo Excel
+    df.to_excel('metricas_mysql.xlsx', index=False)
+
+    # Gerar o relatório detalhado
+    gerar_relatorio(metricas_mysql, pontuacao)
+
+    print(f"Métricas coletadas: {metricas_mysql}")
+    print(f"Pontuação calculada: {pontuacao}")
+    print(f"Arquivo 'metricas_mysql.xlsx' criado com sucesso.")
+    print(f"Relatório salvo como 'relatorio_pontuacao.txt'.")
