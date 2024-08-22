@@ -15,7 +15,7 @@ O projeto é dividido em dois arquivos principais:
 
 - **`rs-mysql.py`**: Responsável por coletar as métricas do MySQL e exportá-las para um arquivo Excel.
 - **`instances.py`**: Contém a lógica para recomendar uma classe de instância AWS EC2 com base nas métricas coletadas.
-
+- **`relatorio.py`**: Contém a função que gera o relatório txt com a explicação detalhada da pontuação.
 ## Dependências
 
 As seguintes bibliotecas Python são necessárias para rodar este projeto:
@@ -49,7 +49,7 @@ Durante a execução, o script pedirá os seguintes detalhes:
   ![image](https://github.com/user-attachments/assets/48d93ecb-8059-4505-ace6-19ab9871ea0b)
 
 
-Ver o Resultado: O script irá gerar um arquivo **`metricas_mysql.xlsx`** com as métricas coletadas e a recomendação de instância.
+Ver o Resultado: O script irá gerar dois arquivos **`metricas_mysql.xlsx`** e **`relatorio_pontuacao.txt`** com as métricas coletadas, recomendação de instância e a explicação da pontuação para a escolha da instancia.
 
 ## Exemplo de Saída
 O arquivo Excel gerado (metricas_mysql.xlsx) conterá as seguintes colunas:
